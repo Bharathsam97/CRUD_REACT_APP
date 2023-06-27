@@ -5,7 +5,7 @@ const createUser= async (req,res) =>{
         const {name,description} =req.body;
         const user=new Usermodel({name,description});
         const savedUser= await user.save();
-        res.json(savedUser);
+        res.status(201).json(savedUser);
     }
     catch (err){
         res.status(500).json({error:err.message});
@@ -41,14 +41,14 @@ const getUserById = async (req,res)=>{
 const UpdateUserById = async (req,res)=>{
     try{
         const {name,description} =req.body;
-
-        const user = await Usermodel.findByIdAndUpdate(req.params.id,{name,description},{new:true});
+        const { id } = req.params;
+        console.log(req.body);
+        const user = await Usermodel.findByIdAndUpdate(id,{name,description},{new:true});
+        console.log(user);
         if(!user){
             res.status(404).json({error:err.message});
         }
-        else{
         res.json(user);
-        }
     }
     catch (err){
         res.status(500).json({error:err.message})
