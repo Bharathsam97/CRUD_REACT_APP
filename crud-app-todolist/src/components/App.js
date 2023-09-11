@@ -6,7 +6,7 @@ function App() {
   return (
     <UserProvider>
       <div className="container">
-        <h1>USER Application</h1>
+        <h1 className='appHeading'>User Application</h1>
         <UserForm />
       </div>
     </UserProvider>

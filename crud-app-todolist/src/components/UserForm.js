@@ -49,16 +49,24 @@ function UserForm() {
   return (
     <div>
   <form className="form" onSubmit={handleSubmit}>
+    <label htmlFor='username'>
+      Name:
+    </label>
     <input
       className="input"
       type="text"
+      id='username'
       placeholder="Enter name"
       value={name}
       onChange={(e) => setName(e.target.value)}
     />
+     <label htmlFor='userdescription'>
+      Description:
+    </label>
     <input
       className="input"
       type="text"
+      id='userdescription'
       placeholder="Enter description"
       value={description}
       onChange={(e) => setDescription(e.target.value)}
